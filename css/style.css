@@ -1,9 +1,15 @@
 *{padding: 0;
 margin: 0;
-box-sizing: border-box;
-background-color: rgb(2, 152, 102);}
+box-sizing: border-box;}
 
 .header{
+    background-color: rgb(14, 88, 14);
+    color: white;
     text-align: center;
+    text-justify: center;
     margin: 20px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
