@@ -1,230 +1,365 @@
 
-class jugador {
-    constructor(nombre, genero, partidosJugados, tecnica, saque, drive, reves, remate, posicionamiento, estadoFisico, defensa, mentalidad, nivel, categoria ){
+class clase {
+    constructor(nombre, zona, categoria, edad, formato, turno, dia, valor, nivel){
         this.nombre = nombre.toUpperCase()
-        this.genero = genero.toUpperCase()
-        this.partidosJugados = partidosJugados
-        this.tecnica = tecnica
-        this.saque = saque
-        this.drive = drive
-        this.reves = reves
-        this.remate = remate
-        this.posicionamiento = posicionamiento
-        this.estadoFisico = estadoFisico
-        this.defensa = defensa
-        this.mentalidad = mentalidad
-        this.nivel = ((this.tecnica + this.saque + this.drive + this.reves + this.remate + this.posicionamiento + this.estadoFisico + this.defensa + this.mentalidad)/9).toFixed(1);
-        this.categoria = categoria
+        this.zona = zona.toUpperCase()
+        this.categoria = categoria.toUpperCase()
+        this.edad = edad.toUpperCase()
+        this.formato = formato.toUpperCase()
+        this.turno = turno.toUpperCase()
+        this.dia = dia.toUpperCase()
+        this.valor = valor
+        this.nivel = nivel.toUpperCase()
+
     }
-
-    partidoNuevo (){this.partidosJugados = this.partidosJugados + 1}
-
-    mejora (){
-        this.tecnica = (this.tecnica + this.partidosJugados *0.2).toFixed(1);
-        this.saque = (this.saque + this.partidosJugados *0.15).toFixed(1);
-        this.drive = (this.drive + this.partidosJugados *0.1).toFixed(1);
-        this.reves = (this.reves + this.partidosJugados *0.08).toFixed(1);
-        this.remate = (this.remate + this.partidosJugados *0.12).toFixed(1);
-        this.posicionamiento = (this.posicionamiento + this.partidosJugados *0.2).toFixed(1);
-        this.estadoFisico = (this.estadoFisico + this.partidosJugados *0.25).toFixed(1);
-        this.defensa = (this.defensa + this.partidosJugados *0.1).toFixed(1);
-        this.mentalidad = (this.mentalidad + this.partidosJugados *0.15).toFixed(1);}
-
     
 }
 
+const clases = [];
 
-const jugadores = [];
+clases.push(new clase ("anthropos",        "norte", "comedia musical", "niños",        "puesta", "tarde",  "lunes",     8000, "todos"));
+clases.push(new clase ("anthropos",        "norte", "comedia musical", "adolescentes", "puesta", "tarde",  "miercoles", 8000, "todos"));
+clases.push(new clase ("anthropos",        "norte", "comedia musical", "jovenes",      "puesta", "noche",  "miercoles", 7000, "todos"));
+clases.push(new clase ("anthropos",        "norte", "comedia musical", "adultos",      "puesta", "noche",  "lunes",     7000, "todos"));
+clases.push(new clase ("amalgama",         "caba",  "comedia musical", "niños",        "puesta", "tarde",  "martes",    6000, "todos"));
+clases.push(new clase ("amalgama",         "caba",  "comedia musical", "adolescentes", "puesta", "tarde",  "jueves",    6000, "todos"));
+clases.push(new clase ("amalgama",         "caba",  "comedia musical", "jovenes",      "puesta", "noche",  "martes",    5000, "todos"));
+clases.push(new clase ("amalgama",         "caba",  "comedia musical", "adultos",      "puesta", "noche",  "jueves",    5000, "todos"));
+clases.push(new clase ("musical moments",  "norte", "comedia musical", "niños",        "puesta", "tarde",  "martes",    9000, "todos"));
+clases.push(new clase ("musical moments",  "norte", "comedia musical", "adolescentes", "puesta", "tarde",  "lunes",     9000, "todos"));
+clases.push(new clase ("musical moments",  "norte", "comedia musical", "jovenes",      "puesta", "noche",  "lunes",     8500, "todos"));
+clases.push(new clase ("musical moments",  "norte", "comedia musical", "aadultos",     "puesta", "noche",  "martes",    8500, "todos"));
+clases.push(new clase ("musical moments",  "norte", "comedia musical", "jovenes",      "puesta", "tarde",  "miercoles", 9000, "avanzado"));
+clases.push(new clase ("mahas",            "caba",  "improvisacion",   "jovenes",      "clases", "noche",  "lunes",     6500, "principiante"));
+clases.push(new clase ("mahas",            "caba",  "improvisacion",   "adultos",      "clases", "noche",  "lunes",     6500, "principiante"));
+clases.push(new clase ("mahas",            "caba",  "improvisacion",   "jovenes",      "clases", "mañana", "martes",    7000, "intermedio"));
+clases.push(new clase ("mahas",            "caba",  "improvisacion",   "adultos",      "clases", "mañana", "martes",    7000, "intermedio"));
+clases.push(new clase ("mahas",            "caba",  "improvisacion",   "adultos",      "clases", "noche",  "jueves",    7500, "avanzado"));
+clases.push(new clase ("mahas",            "caba",  "improvisacion",   "jovenes",      "clases", "tarde",  "jueves",    7500, "avanzado"));
+clases.push(new clase ("percipere",        "norte", "teatro",          "adultos",      "clases", "noche",  "jueves",    8500, "todos"));
+clases.push(new clase ("percipere",        "norte", "teatro",          "jovenes",      "clases", "noche",  "martes",    8500, "todos"));
+clases.push(new clase ("percipere",        "norte", "teatro",          "adolescentes", "clases", "tarde",  "jueves",    8500, "todos"));
+clases.push(new clase ("percipere",        "norte", "teatro",          "niños",        "clases", "mañana", "sabado",    8500, "todos"));
+clases.push(new clase ("kairos",           "sur",   "teatro",          "adultos",      "clases", "noche",  "jueves",    6500, "todos"));
+clases.push(new clase ("kairos",           "sur",   "teatro",          "jovenes",      "clases", "tarde",  "jueves",    6500, "todos"));
+clases.push(new clase ("kairos",           "sur",   "teatro",          "adolescentes", "clases", "mañana", "domingo",   7500, "todos"));
+clases.push(new clase ("kairos",           "sur",   "teatro",          "niños",        "clases", "mañana", "sabado",    7500, "todos"));
+clases.push(new clase ("revelio",          "sur",   "comedia musical", "niños",        "puesta", "tarde",  "lunes",     8000, "todos"));
+clases.push(new clase ("revelio",          "sur",   "comedia musical", "adolescentes", "puesta", "tarde",  "miercoles", 8000, "todos"));
+clases.push(new clase ("revelio",          "sur",   "comedia musical", "jovenes",      "puesta", "noche",  "miercoles", 7000, "todos"));
+clases.push(new clase ("revelio",          "sur",   "comedia musical", "adultos",      "puesta", "noche",  "lunes",     7000, "todos"));
+clases.push(new clase ("teatrap",          "sur",   "improvisacion",   "adolescentes", "clases", "noche",  "lunes",     5500, "principiante"));
+clases.push(new clase ("teatrap",          "sur",   "improvisacion",   "jovenes",      "clases", "mañana", "martes",    6000, "intermedio"));
+clases.push(new clase ("teatrap",          "sur",   "improvisacion",   "adolescentes", "clases", "mañana", "martes",    6000, "intermedio"));
+clases.push(new clase ("teatrap",          "sur",   "improvisacion",   "adultos",      "clases", "noche",  "jueves",    6500, "avanzado"));
+clases.push(new clase ("teatrap",          "sur",   "improvisacion",   "jovenes",      "clases", "tarde",  "jueves",    6500, "avanzado"));
+clases.push(new clase ("90-91",            "oeste", "teatro",          "adultos",      "puesta", "noche",  "jueves",    6000, "todos"));
+clases.push(new clase ("90-91",            "oeste", "teatro",          "jovenes",      "puesta", "tarde",  "jueves",    6000, "todos"));
+clases.push(new clase ("90-91",            "oeste", "teatro",          "adolescentes", "puesta", "mañana", "domingo",   7000, "todos"));
+clases.push(new clase ("90-91",            "oeste", "teatro",          "niños",        "puesta", "mañana", "sabado",    7000, "todos"));
+clases.push(new clase ("odisea",           "oeste", "comedia musical", "niños",        "puesta", "tarde",  "lunes",     6000, "todos"));
+clases.push(new clase ("odisea",           "oeste", "comedia musical", "adolescentes", "puesta", "tarde",  "lunes",     6000, "todos"));
+clases.push(new clase ("odisea",           "oeste", "comedia musical", "jovenes",      "puesta", "noche",  "lunes",     6500, "todos"));
+clases.push(new clase ("odisea",           "oeste", "comedia musical", "adultos",      "puesta", "noche",  "lunes",     6500, "todos"));
+clases.push(new clase ("moscu",            "oeste", "improvisacion",   "adolescentes", "clases", "tarde",  "sabado",    5500, "todos"));
+clases.push(new clase ("moscu",            "oeste", "improvisacion",   "jovenes",      "clases", "mañana", "domingo",   5000, "todos"));
+clases.push(new clase ("moscu",            "oeste", "improvisacion",   "adolescentes", "clases", "mañana", "sabado",    5000, "todos"));
+clases.push(new clase ("moscu",            "oeste", "improvisacion",   "adultos",      "clases", "noche",  "jueves",    5500, "todos"));
+clases.push(new clase ("moscu",            "oeste", "improvisacion",   "jovenes",      "clases", "tarde",  "jueves",    5500, "todos"));
 
-jugadores.push(new jugador ("agus", "no binario", 0, 3, 2, 5, 2, 4, 3, 6, 1, 3, Number(""),""));
-jugadores.push(new jugador ("tomas", "masculino", 18, 9, 6, 9, 7, 8, 7, 7, 8, 10, Number(""),""));
-jugadores.push(new jugador ("gregorio", "masculino", 4, 6, 7, 7, 5, 7, 6, 8, 5, 6, Number(""),""));
-jugadores.push(new jugador ("francisco", "no binario", 12, 9, 5, 4, 6, 8, 8, 7, 6, 8, Number(""),""));
-jugadores.push(new jugador ("marcos", "masculino", 15, 8, 8, 7, 5, 9, 10, 7, 6, 10, Number(""),""));
-jugadores.push(new jugador ("juana", "femenino", 5, 3, 5, 7, 6, 4, 4, 8, 6, 3, Number(""),""));
-jugadores.push(new jugador ("mercedes", "femenino", 25, 9, 7, 10, 8, 8, 8, 9, 10, 10, Number(""),""));
-jugadores.push(new jugador ("lucas", "masculino", 14, 7, 7, 7, 8, 7, 7, 8, 7, 6, Number(""),""));
-jugadores.push(new jugador ("sofia", "femenino", 22, 9, 9, 8, 8, 7, 9, 9, 8, 10, Number(""),""));
-jugadores.push(new jugador ("andrea", "no binario", 6, 5, 7, 6, 3, 5, 4, 8, 3, 7, Number(""),""));
-jugadores.push(new jugador (prompt("ingrese su nombre"), prompt("ingrese su genero (Femenino, Masculino o No binario)"), Number(prompt("indique con valor numérico, cuantos partidos de PADEL jugó este año")), Number(prompt("califique con valor numérico su TÉCNICA, en una escala del 1 al 10")), Number(prompt("califique con valor numérico su SAQUE, en una escala del 1 al 10")), Number(prompt("califique con valor numérico su DRIVE, en una escala del 1 al 10")), Number(prompt("califique con valor numérico su REVES, en una escala del 1 al 10")), Number(prompt("califique con valor numérico su REMATE, en una escala del 1 al 10")), Number(prompt("califique con valor numérico su POSICIONAMIENTO, en una escala del 1 al 10")), Number(prompt("califique con valor numérico su ESTADO FÍSICO, en una escala del 1 al 10")), Number(prompt("califique con valor numérico sus REFLEJOS DEFENSIVOS, en una escala del 1 al 10")), Number(prompt("califique con valor numérico su MENTALIDAD EN EL DEPORTE, en una escala del 1 al 10")),"",""))
 
-for (const jugador of jugadores){
-    jugador.partidoNuevo();
-    jugador.mejora();
+//---------------listado de botones --------------
+
+
+let opcionesLugar = document.getElementById("lugar")
+const lugares = ["anthropos", "amalgama", "musical moments", "mahas", "percipere", "kairos", "revelio", "teatrap", "90-91", "odisea", "moscu"]
+
+for (const lugar of lugares){
+    let btn = document.createElement("button");
+    btn.innerHTML = lugar.toUpperCase();
+    btn.className = "btnLugar";
+    opcionesLugar.appendChild(btn);
 }
 
-jugadores.forEach(jugador => { if(jugador.nivel > 8.5){
-    jugador.categoria = "EXPERTO"}
-    
-    else if (jugador.nivel > 7.5) {
-        jugador.categoria = "AVANZADO"}
+let opcionesZona = document.getElementById("zona")
+const zonas = ["caba", "norte", "oeste", "sur"]
 
-    else if (jugador.nivel > 5.5) {
-        jugador.categoria = "MEDIO"}
-    
-    else
-        {jugador.categoria = "PRINCIPIANTE"}
-});
+for (const zona of zonas){
+    let btn = document.createElement("button");
+    btn.innerHTML = zona.toUpperCase();
+    btn.className = "btnZona";
+    opcionesZona.appendChild(btn);
+}
 
-console.log("Todos los datos: ")
-console.log(jugadores)
-console.log("----------")
+let opcionesCategoria = document.getElementById("categoria")
+const categorias = ["teatro", "comedia musical", "improvisacion"]
+
+for (const categoria of categorias){
+    let btn = document.createElement("button");
+    btn.innerHTML = categoria.toUpperCase();
+    btn.className = "btnCategoria";
+    opcionesCategoria.appendChild(btn);
+}
+
+let opcionesEdad = document.getElementById("edad")
+const edades = ["niños", "adolescentes", "jovenes", "adultos"]
+
+for (const edad of edades){
+    let btn = document.createElement("button");
+    btn.innerHTML = edad.toUpperCase();
+    btn.className = "btnEdad";
+    opcionesEdad.appendChild(btn);
+}
+
+let opcionesFormato = document.getElementById("formato")
+const formatos = ["puesta", "clases"]
+
+for (const formato of formatos){
+    let btn = document.createElement("button");
+    btn.innerHTML = formato.toUpperCase();
+    btn.className = "btnFormato";
+    opcionesFormato.appendChild(btn);
+}
+
+let opcionesTurno = document.getElementById("turno")
+const turnos = ["mañana", "tarde", "noche"]
+
+for (const turno of turnos){
+    let btn = document.createElement("button");
+    btn.innerHTML = turno.toUpperCase();
+    btn.className = "btnTurno";
+    opcionesTurno.appendChild(btn);
+}
+
+let opcionesDia = document.getElementById("dia")
+const dias = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"]
+
+for (const dia of dias){
+    let btn = document.createElement("button");
+    btn.innerHTML = dia.toUpperCase();
+    btn.className = "btnDia";
+    opcionesDia.appendChild(btn);
+}
+
+let opcionesValor = document.getElementById("valor")
+const valores = [5000, 5500, 6000, 6500, 7000, 7500, 8000, 8500, 9000]
+
+for (const valor of valores){
+    let btn = document.createElement("button");
+    btn.innerHTML = valor;
+    btn.className = "btnValor";
+    opcionesValor.appendChild(btn);
+}
+
+let opcionesNivel = document.getElementById("nivel")
+const niveles = ["principiante", "intermedio", "avanzado", "todos"]
+
+for (const nivel of niveles){
+    let btn = document.createElement("button");
+    btn.innerHTML = nivel.toUpperCase();
+    btn.className = "btnNivel";
+    opcionesNivel.appendChild(btn);
+}
+
+//--------------------FILTROS---------------------------
 
 
-const resumen = jugadores.map ((jugador)=> {
-    return{
-        nombre: jugador.nombre,
-        genero: jugador.genero,
-        nivel: jugador.nivel,
-        categoria: jugador.categoria, 
-    }
-})
-console.log("Resumen de datos: ")
-console.log(resumen)
-console.log("----------")
-
-//-------------BUSQUEDA POR FILTROS------------------
-console.log("Resultados de la búsqueda por filtros:")
-
-const criteriosFiltro = {
+let criteriosFiltro = {
     nombre: "".toUpperCase(),
-    genero: "femenino".toUpperCase(),
-    minimoDePartidosJugados: "10",
-    maximoDePartidosJugados: "",
-    tecnica: "",
-    saque: "",
-    drive: "",
-    reves: "",
-    remate:"",
-    posicionamiento: "",
-    estadoFisico: "15",
-    defensa: "",
-    mentalidad: "",
-    nivel: "",
-    categoria:"experto".toUpperCase(),
+    zona: "".toUpperCase(),
+    categoria: "".toUpperCase(),
+    edad: "".toUpperCase(),
+    formato: "".toUpperCase(),
+    turno: "".toUpperCase(),
+    dia: "".toUpperCase(),
+    valorMinimo: "",
+    valorMaximo: "",
+    nivel:"".toUpperCase(),
+
 
 }
 
-function infoJugadores(jugadores){
-    jugadores.forEach(jugador => {
-        console.log(" Nombre: " + jugador.nombre + ". Género: " + jugador.genero + ". Jugó: " +  jugador.partidosJugados + " partidos. Técnica: " + jugador.tecnica + " puntos. Saque: " + jugador.saque + " puntos. Drive: " + jugador.drive + " puntos. Revés: " + jugador.reves + " puntos. Remate: " + jugador.remate + " puntos. Posicionamiento: " + jugador.posicionamiento + " puntos. Estado físico: " + jugador.estadoFisico+ " puntos. Defensa: " + jugador.defensa + " puntos. Mentalidad: " + jugador.mentalidad + " puntos. Nivel: " + jugador.nivel + " puntos. Categoría: " + jugador.categoria )
-    })
+function infoClases(clases){
+    for (const clase of clases) {
+        let contenedor = document.createElement("div");
+        contenedor.innerHTML = `<h3> ${clase.nombre}</h3>
+                                <p> Zona: ${clase.zona}</p>
+                                <p> Categoría: ${clase.categoria}</p>
+                                <p> Edad: ${clase.edad}</p>
+                                <p> Formato: ${clase.formato}</p>
+                                <p> Turno: ${clase.turno}</p>
+                                <p> Día: ${clase.dia}</p>
+                                <p> Valor: ${clase.valor}</p>
+                                <p> Nivel: ${clase.nivel}</p>
+                                `;
+        contenedor.className = "cards";
+        document.querySelector(".respuestas").appendChild(contenedor);
+    }
+    
 }
 
-function noHayJugadores(){
-    console.log("No hay jugadores con esas características")
+function noHayClases(){
+    console.log("No hay clases con esas características")
 }
 
-function filtrarNombre(jugador){
+function filtrarNombre(clase){
     if(criteriosFiltro.nombre){
-        return jugador.nombre == criteriosFiltro.nombre
+        return clase.nombre == criteriosFiltro.nombre
     }
-    return jugador;
+    return clase;
 }
 
-function filtrarGenero(jugador){
-    if(criteriosFiltro.genero){
-        return jugador.genero == criteriosFiltro.genero
+function filtrarZona(clase){
+    if(criteriosFiltro.zona){
+        return clase.zona == criteriosFiltro.zona
     }
-    return jugador;
+    return clase;
 }
 
-function filtrarMinimoDePartidosJugados(jugador){
-    if(criteriosFiltro.minimoDePartidosJugados){
-        return jugador.partidosJugados >= criteriosFiltro.minimoDePartidosJugados
-    }
-    return jugador;
-}
-function filtrarMaximoDePartidosJugados(jugador){
-    if(criteriosFiltro.maximoDePartidosJugados){
-        return jugador.partidosJugados <= criteriosFiltro.maximoDePartidosJugados
-    }
-    return jugador;
-}
-function filtrarTecnica(jugador){
-    if(criteriosFiltro.tecnica){
-        return Math.floor(jugador.tecnica) == criteriosFiltro.tecnica
-    }
-    return jugador;
-}
-
-function filtrarSaque(jugador){
-    if(criteriosFiltro.saque){
-        return Math.floor(jugador.saque)  == criteriosFiltro.saque
-    }
-    return jugador;
-}
-function filtrarDrive(jugador){
-    if(criteriosFiltro.drive){
-        return Math.floor(jugador.drive)  == criteriosFiltro.drive
-    }
-    return jugador;
-}
-function filtrarReves(jugador){
-    if(criteriosFiltro.reves){
-        return Math.floor(jugador.reves) == criteriosFiltro.reves
-    }
-    return jugador;
-}
-function filtrarRemate(jugador){
-    if(criteriosFiltro.remate){
-        return Math.floor(jugador.remate) == criteriosFiltro.remate
-    }
-    return jugador;
-}
-function filtrarPosicionamiento(jugador){
-    if(criteriosFiltro.posicionamiento){
-        return Math.floor(jugador.posicionamiento) == criteriosFiltro.posicionamiento
-    }
-    return jugador;
-}
-function filtrarEstadoFisico(jugador){
-    if(criteriosFiltro.estadoFisico){
-        return Math.floor(jugador.estadoFisico) == criteriosFiltro.estadoFisico
-    }
-    return jugador;
-}
-function filtrarDefensa(jugador){
-    if(criteriosFiltro.defensa){
-        return Math.floor(jugador.defensa) == criteriosFiltro.defensa
-    }
-    return jugador;
-}
-function filtrarMentalidad(jugador){
-    if(criteriosFiltro.mentalidad){
-        return Math.floor(jugador.mentalidad) == criteriosFiltro.mentalidad
-    }
-    return jugador;
-}
-function filtrarNivel(jugador){
-    if(criteriosFiltro.nivel){
-        return Math.floor(jugador.nivel) == criteriosFiltro.nivel
-    }
-    return jugador;
-}
-function filtrarCategoria(jugador){
+function filtrarCategoria(clase){
     if(criteriosFiltro.categoria){
-        return jugador.categoria == criteriosFiltro.categoria
+        return clase.categoria == criteriosFiltro.categoria
     }
-    return jugador;
+    return clase;
 }
 
-function filtrarJugador(){
-    let resultado = jugadores.filter(filtrarNombre).filter(filtrarGenero).filter(filtrarMinimoDePartidosJugados).filter(filtrarMaximoDePartidosJugados).filter(filtrarTecnica).filter(filtrarSaque).filter(filtrarDrive).filter(filtrarReves).filter(filtrarRemate).filter(filtrarPosicionamiento).filter(filtrarEstadoFisico).filter(filtrarDefensa).filter(filtrarMentalidad).filter(filtrarNivel).filter(filtrarCategoria);
+function filtrarEdad(clase){
+    if(criteriosFiltro.edad){
+        return clase.edad == criteriosFiltro.edad
+    }
+    return clase;
+}
 
+function filtrarFormato(clase){
+    if(criteriosFiltro.formato){
+        return clase.formato == criteriosFiltro.formato
+    }
+    return clase;
+}
+
+function filtrarTurno(clase){
+    if(criteriosFiltro.turno){
+        return clase.turno  == criteriosFiltro.turno
+    }
+    return clase;
+}
+function filtrarDia(clase){
+    if(criteriosFiltro.dia){
+        return clase.dia  == criteriosFiltro.dia
+    }
+    return clase;
+}
+
+function filtrarValorMinimo(clase){
+    if(criteriosFiltro.valorMinimo){
+        return clase.valor >= criteriosFiltro.valorMinimo
+    }
+    return clase;
+}
+
+function filtrarValorMaximo(clase){
+    if(criteriosFiltro.valorMaximo){
+        return clase.valor <= criteriosFiltro.valorMaximo
+    }
+    return clase;
+}
+
+function filtrarNivel(clase){
+    if(criteriosFiltro.nivel){
+        return Math.floor(clase.nivel) == criteriosFiltro.nivel
+    }
+    return clase;
+}
+
+
+function filtrarClase(){
+    let resultado = clases.filter(filtrarNombre).filter(filtrarZona).filter(filtrarCategoria).filter(filtrarEdad).filter(filtrarFormato).filter(filtrarTurno).filter(filtrarDia).filter(filtrarValorMinimo).filter(filtrarValorMaximo).filter(filtrarNivel);
+    
     if (resultado.length) {
-        infoJugadores(resultado)
+        infoClases(resultado)
     }
     
     else {
-        noHayJugadores()
+        noHayClases()
     }
 }
 
-filtrarJugador();
+//filtrarClase();
+
+
+//--------------CLICK BOTONES---------------------
+
+let botones = document.querySelectorAll(".opcion button");
+botones.forEach((item) => {
+    let clickBoton = (evt) => {
+        let cajaRespuestas = document.querySelector(".respuestas")
+        let seleccionado = document.createElement("p");
+        seleccionado.innerText = item;
+        //cajaRespuestas.appendChild(seleccionado);
+        console.log(evt)
+        console.log(item.innerText)
+        console.log(item.className)
+        //obtener clase y texto del elemento html ---- LISTO-----
+
+        if (item.className == "btnLugar"){
+       
+            criteriosFiltro.nombre = item.innerText
+
+        }
+        else if(item.className == "btnZona"){
+       
+            criteriosFiltro.zona = item.innerText
+
+        }
+        else if(item.className == "btnCategoria"){
+       
+            criteriosFiltro.categoria = item.innerText
+
+        }        
+        else if(item.className == "btnEdad"){
+       
+            criteriosFiltro.edad = item.innerText
+
+        }
+        else if(item.className == "btnFormato"){
+       
+            criteriosFiltro.formato = item.innerText
+
+        }
+        else if(item.className == "btnTurno"){
+       
+            criteriosFiltro.turno = item.innerText
+
+        }
+        else if(item.className == "btnDia"){
+       
+            criteriosFiltro.dia = item.innerText
+
+        }
+        else if(item.className == "btnNivel"){
+       
+            criteriosFiltro.nivel = item.innerText
+
+        }
+        else{
+            console.log("CORREGIR")
+        }
+        //actualizar la variable criterio filtro
+
+    }
+    item.addEventListener('click', clickBoton)
+    item.addEventListener('click', filtrarClase)
+
+});
+
+//-------------BUSQUEDA POR FILTROS------------------
+//console.log("Resultados de la búsqueda por filtros:")
 
 
 
+
+
+//---------------------------------------------------------------------------------------------
 
 
 
